@@ -1816,6 +1816,9 @@ void __connman_ipconfig_append_ipv4(struct connman_ipconfig *ipconfig,
 	if (append_addr->gateway)
 		connman_dbus_dict_append_basic(iter, "Gateway",
 				DBUS_TYPE_STRING, &append_addr->gateway);
+	else if (ipconfig->address->gateway)
+		connman_dbus_dict_append_basic(iter, "Gateway",
+				DBUS_TYPE_STRING, &ipconfig->address->gateway);
 }
 
 void __connman_ipconfig_append_ipv6(struct connman_ipconfig *ipconfig,
